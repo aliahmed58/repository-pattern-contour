@@ -7,29 +7,29 @@ package org.assignment.entities;
 public class Applicant extends Person {
 
     // The recruiter ID
-    private String recruiterId;
+    private Recruiter recruiter;
 
-    public Applicant(String username, String firstName, String lastName, String recruiterId) {
+    public Applicant(String username, String firstName, String lastName, Recruiter recruiter) {
         super(username, firstName, lastName);
-        this.recruiterId = recruiterId;
+        this.recruiter = recruiter;
     }
 
 
     @Override
     public String toString() {
         return "Applicant{" +
-                "recruiterId='" + recruiterId + '\'' +
+                "recruiterId='" + recruiter + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", username='" + id + '\'' +
                 '}';
     }
 
-    public String getRecruiterId() {
-        return recruiterId;
+    public Recruiter getRecruiter() {
+        return recruiter;
     }
 
-    public void setRecruiterId(String recruiterId) {
-        this.recruiterId = recruiterId;
+    public void setRecruiter(Recruiter recruiter) {
+        this.recruiter = recruiter;
     }
 }

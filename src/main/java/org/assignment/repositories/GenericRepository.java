@@ -1,6 +1,5 @@
 package org.assignment.repositories;
 
-import org.assignment.entities.Applicant;
 import org.assignment.entities.BaseEntity;
 
 import java.util.ArrayList;
@@ -16,23 +15,35 @@ import java.util.Map;
 
 public class GenericRepository<T extends BaseEntity<K>, K> implements Repository<T, K> {
 
+    /**
+     * A map of K key type and T object type where T extends the BaseEntity (the superclass of all entities)
+     */
     protected  Map<K, T> map = new HashMap<>();
 
+    /**
+     * Find an object by id by looking in the map, if found return else throw an IllegalArgumentExceptions
+     */
     @Override
-    public T findById(K id) {
+    public T findById(K id) throws IllegalArgumentException {
         if (!this.map.containsKey(id)) {
             throw new IllegalArgumentException("Find: Entity " + id + "does not exist");
         }
         return this.map.get(id);
     }
 
+    /**
+     * Return all entities as list by getting values from the map
+     */
     @Override
     public List<T> findAll() {
         return new ArrayList<>(this.map.values());
     }
 
+    /**
+     * Add an entity if it does not exists
+     */
     @Override
-    public void add(T entity) {
+    public void add(T entity) throws IllegalArgumentException {
         if (this.map.containsKey(entity.getId())) {
             throw new IllegalArgumentException("Insert: Entity " + entity.getId() + " already exists");
         } else {
@@ -40,8 +51,11 @@ public class GenericRepository<T extends BaseEntity<K>, K> implements Repository
         }
     }
 
+    /**
+     * Update an entity if it already exists
+     */
     @Override
-    public void update(T entity) {
+    public void update(T entity) throws IllegalArgumentException {
         if (this.map.containsKey(entity.getId())) {
             map.replace(entity.getId(), entity);
         }
@@ -50,8 +64,11 @@ public class GenericRepository<T extends BaseEntity<K>, K> implements Repository
         }
     }
 
+    /**
+     * Delete an entity if it does exist in the map
+     */
     @Override
-    public void delete(K id) {
+    public void delete(K id) throws IllegalArgumentException {
         if (this.map.containsKey(id)) {
             map.remove(id);
         }
