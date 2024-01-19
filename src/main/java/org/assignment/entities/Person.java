@@ -6,23 +6,21 @@ import java.util.Objects;
  * An abstract class for a user entity such as Recruiter, Applicant containing common functionality
  * Making this class sealed so only Applicant and Recruiter can extend from it
  */
-public abstract class Person {
+public abstract class Person extends Entity<String> {
 
     // common user attributes first, last name and username
     protected String firstName;
     protected String lastName;
-    // a unique identifier for every user
-    protected String username;
 
     // default ctor
     public Person() {
 
     }
 
-    public Person( String username, String firstName, String lastName) {
+    public Person(String id, String firstName, String lastName) {
+        super(id);
         this.firstName = firstName;
         this.lastName = lastName;
-        this.username = username;
     }
 
     /**
@@ -53,26 +51,4 @@ public abstract class Person {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    // equate person based on username and use it for the hashcode as well
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return Objects.equals(username, person.username);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(username);
-    }
 }

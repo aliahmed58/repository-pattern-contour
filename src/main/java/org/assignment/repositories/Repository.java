@@ -36,7 +36,7 @@ public interface Repository<T, K> {
 
     /**
      * Delete the entity from repository
-     * @param entity the entity T object that should be deleted
+     * @param id the id K of the object that should be deleted
      */
-    void delete(T entity);
+    void delete(K id);
 }
