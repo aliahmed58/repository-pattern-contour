@@ -12,7 +12,7 @@ public class Recruiter extends Person {
         return "Recruiter{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + id + '\'' +
                 '}';
     }
 }

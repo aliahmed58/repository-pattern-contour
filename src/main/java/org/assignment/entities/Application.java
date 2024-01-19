@@ -1,32 +1,21 @@
 package org.assignment.entities;
 
 import java.util.Date;
-import java.util.Objects;
 
-public class Application {
+public class Application extends BaseEntity<Integer> {
 
-    private int applicationId;
     private Applicant applicant;
     private String description;
     private Date dateOfApply;
     private Status applicationStatus;
 
     public Application(int applicationId, Applicant applicant, String description, Date dateOfApply, Status applicationStatus) {
-        this.applicationId = applicationId;
+        super(applicationId);
         this.applicant = applicant;
         this.description = description;
         this.dateOfApply = dateOfApply;
         this.applicationStatus = applicationStatus;
     }
-
-    public int getApplicationId() {
-        return applicationId;
-    }
-
-    public void setApplicationId(int applicationId) {
-        this.applicationId = applicationId;
-    }
-
     public Status getApplicationStatus() {
         return applicationStatus;
     }
@@ -69,22 +58,8 @@ public class Application {
                 "applicant=" + applicant +
                 ", description='" + description + '\'' +
                 ", dateOfApply=" + dateOfApply +
+                ", applicationStatus=" + applicationStatus +
+                ", id=" + id +
                 '}';
-    }
-
-    /**
-     * Equate applications based on applicationId and for the hashcode as well
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Application that = (Application) o;
-        return applicationId == that.applicationId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(applicationId);
     }
 }

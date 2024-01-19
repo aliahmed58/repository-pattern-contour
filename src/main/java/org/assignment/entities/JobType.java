@@ -1,17 +1,14 @@
 package org.assignment.entities;
 
-import java.util.Objects;
+public class JobType extends BaseEntity<Integer> {
 
-public class JobType {
-
-    private int jobTypeId;
     private String type;
     private Level jobLevel;
 
     public JobType() {}
 
     public JobType(int jobTypeId, String type, Level jobLevel) {
-        this.jobTypeId = jobTypeId;
+        super(jobTypeId);
         this.type = type;
         this.jobLevel = jobLevel;
     }
@@ -19,18 +16,10 @@ public class JobType {
     @Override
     public String toString() {
         return "JobType{" +
-                "jobTypeId='" + jobTypeId + '\'' +
+                "jobTypeId='" + id + '\'' +
                 ", type='" + type + '\'' +
                 ", jobLevel=" + jobLevel +
                 '}';
-    }
-
-    public int getJobTypeId() {
-        return jobTypeId;
-    }
-
-    public void setJobTypeId(int jobTypeId) {
-        this.jobTypeId = jobTypeId;
     }
 
     public String getType() {
@@ -49,19 +38,4 @@ public class JobType {
         this.jobLevel = jobLevel;
     }
 
-    /**
-     * Equals method to equate job type objects on JobTypeId
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        JobType jobType = (JobType) o;
-        return jobTypeId == jobType.jobTypeId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(jobTypeId);
-    }
 }

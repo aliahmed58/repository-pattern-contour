@@ -21,7 +21,7 @@ public class Applicant extends Person {
                 "recruiterId='" + recruiterId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
+                ", username='" + id + '\'' +
                 '}';
     }
 

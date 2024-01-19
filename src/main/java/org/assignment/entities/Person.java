@@ -1,12 +1,10 @@
 package org.assignment.entities;
 
-import java.util.Objects;
-
 /**
  * An abstract class for a user entity such as Recruiter, Applicant containing common functionality
  * Making this class sealed so only Applicant and Recruiter can extend from it
  */
-public abstract class Person extends Entity<String> {
+public abstract class Person extends BaseEntity<String> {
 
     // common user attributes first, last name and username
     protected String firstName;

@@ -8,15 +8,15 @@ import java.util.Objects;
  *
  * @param <K> the type of id the entity will have such as string, int etc.
  */
-public abstract class Entity<K> {
+public abstract class BaseEntity<K> {
 
     protected K id;
 
-    public Entity(K id) {
+    public BaseEntity(K id) {
         this.id = id;
     }
 
-    public Entity() {
+    public BaseEntity() {
 
     }
 
@@ -39,7 +39,7 @@ public abstract class Entity<K> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Entity<?> entity = (Entity<?>) o;
+        BaseEntity<?> entity = (BaseEntity<?>) o;
         return Objects.equals(id, entity.id);
     }
 
