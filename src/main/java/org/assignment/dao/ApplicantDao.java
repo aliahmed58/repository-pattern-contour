@@ -3,6 +3,7 @@ package org.assignment.dao;
 import org.assignment.entities.Applicant;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicantDao extends BaseDao<Applicant, String> {
@@ -24,11 +25,25 @@ public class ApplicantDao extends BaseDao<Applicant, String> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     @Override
     public List<Applicant> readAll() {
-        return null;
+        List<Applicant> applicants = new ArrayList<>();
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Applicants INNER JOIN Recruiters ON applicants.recruiter_id = recruiters.username");
+            while (rs.next()) {
+                applicants.add(new Applicant(
+                    rs.getString("username"), rs.getString("first_name"),
+                    rs.getString("last_name"), null
+                ));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return applicants;
     }
 
     @Override

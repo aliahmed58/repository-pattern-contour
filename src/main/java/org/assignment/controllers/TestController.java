@@ -10,8 +10,8 @@ import java.sql.Connection;
 
 public class TestController {
     public static void main(String[] args) {
-        DbContext context = DbContext.getInstance();
-        Connection con = context.getConnection();
-
+        Connection connection = DbContext.getInstance().getConnection();
+        UnitOfWork unitOfWork = new UnitOfWork(DbContext.getInstance());
+        System.out.println(unitOfWork.getApplicantRepository().findAll());
     }
 }

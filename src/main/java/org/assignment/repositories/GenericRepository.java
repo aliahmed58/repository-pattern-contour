@@ -1,5 +1,7 @@
 package org.assignment.repositories;
 
+import org.assignment.dao.BaseDao;
+import org.assignment.dbcontext.DbContext;
 import org.assignment.entities.BaseEntity;
 
 import java.util.ArrayList;
@@ -20,6 +22,12 @@ public class GenericRepository<T extends BaseEntity<K>, K> implements Repository
      */
     protected  Map<K, T> map = new HashMap<>();
 
+    protected BaseDao<T, K> dao;
+
+    public GenericRepository(BaseDao<T, K> dao) {
+        this.dao = dao;
+    }
+
     /**
      * Find an object by id by looking in the map, if found return else throw an IllegalArgumentExceptions
      */
@@ -36,7 +44,7 @@ public class GenericRepository<T extends BaseEntity<K>, K> implements Repository
      */
     @Override
     public List<T> findAll() {
-        return new ArrayList<>(this.map.values());
+        return dao.readAll();
     }
 
     /**
