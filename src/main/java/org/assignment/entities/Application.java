@@ -1,15 +1,16 @@
 package org.assignment.entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Application extends BaseEntity<Integer> {
 
     private Applicant applicant;
     private String description;
-    private Date dateOfApply;
+    private LocalDate dateOfApply;
     private Status applicationStatus;
 
-    public Application(int applicationId, Applicant applicant, String description, Date dateOfApply, Status applicationStatus) {
+    public Application(int applicationId, Applicant applicant, String description, LocalDate dateOfApply, Status applicationStatus) {
         super(applicationId);
         this.applicant = applicant;
         this.description = description;
@@ -44,11 +45,11 @@ public class Application extends BaseEntity<Integer> {
         this.description = description;
     }
 
-    public Date getDateOfApply() {
+    public LocalDate getDateOfApply() {
         return dateOfApply;
     }
 
-    public void setDateOfApply(Date dateOfApply) {
+    public void setDateOfApply(LocalDate dateOfApply) {
         this.dateOfApply = dateOfApply;
     }
 

@@ -46,8 +46,7 @@ public class GenericRepository<T extends BaseEntity<K>, K> implements Repository
      */
     @Override
     public List<T> findAll() {
-        this.map = dao.readAll();
-        return (List<T>) this.map.values();
+        return new ArrayList<>(this.map.values());
     }
 
     /**
