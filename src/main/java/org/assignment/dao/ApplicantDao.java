@@ -4,8 +4,9 @@ import org.assignment.entities.Applicant;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.Callable;
+import java.util.Map;
 
 public class ApplicantDao extends BaseDao<Applicant, String> {
     public ApplicantDao(Connection connection) {
@@ -32,13 +33,13 @@ public class ApplicantDao extends BaseDao<Applicant, String> {
     }
 
     @Override
-    public List<Applicant> readAll() {
-        List<Applicant> applicants = new ArrayList<>();
+    public Map<String, Applicant> readAll() {
+        Map<String, Applicant> applicants = new HashMap<>();
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM Applicants INNER JOIN Recruiters ON applicants.recruiter_id = recruiters.username");
             while (rs.next()) {
-                applicants.add(new Applicant(
+                applicants.put(rs.getString("username"), new Applicant(
                     rs.getString("username"), rs.getString("first_name"),
                     rs.getString("last_name"), null
                 ));

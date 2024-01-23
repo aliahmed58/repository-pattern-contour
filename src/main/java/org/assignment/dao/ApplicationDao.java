@@ -3,7 +3,7 @@ package org.assignment.dao;
 import org.assignment.entities.Application;
 
 import java.sql.Connection;
-import java.util.List;
+import java.util.Map;
 
 public class ApplicationDao extends BaseDao<Application, Integer> {
 
@@ -17,7 +17,7 @@ public class ApplicationDao extends BaseDao<Application, Integer> {
   }
 
   @Override
-  public List<Application> readAll() {
+  public Map<Integer, Application> readAll() {
     return null;
   }
 

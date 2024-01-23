@@ -3,7 +3,7 @@ package org.assignment.dao;
 import org.assignment.entities.Recruiter;
 
 import java.sql.Connection;
-import java.util.List;
+import java.util.Map;
 
 /**
  * RecruiterDao class that extends from Base Dao where Recruiter is the type
@@ -20,7 +20,7 @@ public class RecruiterDao extends BaseDao<Recruiter, String> {
   }
 
   @Override
-  public List<Recruiter> readAll() {
+  public Map<String, Recruiter> readAll() {
     return null;
   }
 

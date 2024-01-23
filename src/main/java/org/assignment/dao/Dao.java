@@ -1,6 +1,6 @@
 package org.assignment.dao;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * Interface that contains functions for implementing Data Access Objects
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface Dao<T, K> {
     T read(K id);
-    List<T> readAll();
+    Map<K, T> readAll();
     void delete(K id);
     void update(T object);
     void insert(T object);

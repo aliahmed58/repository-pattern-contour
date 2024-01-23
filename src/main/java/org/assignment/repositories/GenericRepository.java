@@ -34,7 +34,9 @@ public class GenericRepository<T extends BaseEntity<K>, K> implements Repository
     @Override
     public T findById(K id) throws IllegalArgumentException {
         if (!this.map.containsKey(id)) {
-            throw new IllegalArgumentException("Find: Entity " + id + "does not exist");
+            T obj = dao.read(id);
+            this.map.put(id, obj);
+            return obj;
         }
         return this.map.get(id);
     }
@@ -44,7 +46,8 @@ public class GenericRepository<T extends BaseEntity<K>, K> implements Repository
      */
     @Override
     public List<T> findAll() {
-        return dao.readAll();
+        this.map = dao.readAll();
+        return (List<T>) this.map.values();
     }
 
     /**

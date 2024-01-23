@@ -3,7 +3,7 @@ package org.assignment.dao;
 import org.assignment.entities.Job;
 
 import java.sql.Connection;
-import java.util.List;
+import java.util.Map;
 
 public class JobDao extends BaseDao<Job, Integer> {
   public JobDao(Connection connection) {
@@ -16,7 +16,7 @@ public class JobDao extends BaseDao<Job, Integer> {
   }
 
   @Override
-  public List<Job> readAll() {
+  public Map<Integer, Job> readAll() {
     return null;
   }
 
