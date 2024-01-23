@@ -26,12 +26,12 @@ public class JobTypeDao extends BaseDao<JobType, Integer> {
   }
 
   @Override
-  public void update(Integer id) {
+  public void update(JobType object) {
 
   }
 
   @Override
-  public void insert(Integer id) {
+  public void insert(JobType object) {
 
   }
 }

@@ -11,6 +11,6 @@ public interface Dao<T, K> {
     T read(K id);
     List<T> readAll();
     void delete(K id);
-    void update(K id);
-    void insert(K id);
+    void update(T object);
+    void insert(T object);
 }

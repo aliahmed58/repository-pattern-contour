@@ -27,12 +27,12 @@ public class ApplicationDao extends BaseDao<Application, Integer> {
   }
 
   @Override
-  public void update(Integer id) {
+  public void update(Application object) {
 
   }
 
   @Override
-  public void insert(Integer id) {
+  public void insert(Application object) {
 
   }
 }

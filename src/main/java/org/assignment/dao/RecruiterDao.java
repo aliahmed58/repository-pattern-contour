@@ -30,12 +30,12 @@ public class RecruiterDao extends BaseDao<Recruiter, String> {
   }
 
   @Override
-  public void update(String id) {
+  public void update(Recruiter object) {
 
   }
 
   @Override
-  public void insert(String id) {
+  public void insert(Recruiter object) {
 
   }
 }
